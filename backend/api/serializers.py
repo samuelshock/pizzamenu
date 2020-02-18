@@ -4,7 +4,7 @@ from rest_framework import serializers
 
 class PizzaSerializer(serializers.ModelSerializer):
 
-    toppings = serializers.StringRelatedField(many=True)
+    #toppings = serializers.StringRelatedField(many=True)
 
     class Meta:
         model = Pizza
