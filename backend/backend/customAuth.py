@@ -20,6 +20,7 @@ class CustomAuthToken(ObtainAuthToken):
             'user': {
                 'email': user.email,
                 'username': user.username,
-                'admin': user.is_superuser
+                'admin': user.is_superuser,
+                '_id': user.pk
             }
         })

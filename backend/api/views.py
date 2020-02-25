@@ -3,7 +3,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from .models import Pizza, Topping
-from api.serializers import PizzaSerializer, ToppingSerializer
+from api.serializers import PizzaSerializer, ToppingSerializer, PizzaSerializerNotRel
+from rest_framework.decorators import authentication_classes, permission_classes
 
 # The BE should be able to do the following:
 # getPizzas.
@@ -16,6 +17,19 @@ from api.serializers import PizzaSerializer, ToppingSerializer
 # addToppingToPizza.
 # getToppingsForPizza.
 
+@api_view(['GET'])
+@authentication_classes([])
+@permission_classes([])
+def getPizzas(request):
+    """
+    Get Menu
+    """
+    print('get pizzas!')
+    pizzas = Pizza.objects.all()
+    serializer = PizzaSerializer(pizzas, many=True)
+    print(serializer.data)
+    return Response(serializer.data)
+
 @api_view(['GET', 'POST'])
 def getAddPizzas(request):
     """
@@ -24,7 +38,7 @@ def getAddPizzas(request):
     if request.method == 'GET':
         print('get pizzas!')
         pizzas = Pizza.objects.all()
-        serializer = PizzaSerializer(pizzas, many=True)
+        serializer = PizzaSerializerNotRel(pizzas, many=True)
         print(serializer.data)
         return Response(serializer.data)
 
@@ -52,6 +66,7 @@ def pizza_detail(request, pk):
         return Response(serializer.data)
 
     elif request.method == 'PUT':
+        print('update')
         serializer = PizzaSerializer(pizza, data=request.data)
         if serializer.is_valid():
             serializer.save()

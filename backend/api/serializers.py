@@ -13,3 +13,18 @@ class PizzaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pizza
         fields = ('id', 'name', 'toppings')
+
+    # def update(self, data):
+    #     print("entro update serializer!!!")
+    #     toppings_data = data['toppings']
+    #     pizza = Pizza.objects.
+    #     del data['toppings']
+        
+    #     for toping in toppings_data:
+    #         Topping.objects.create(pizza=, **toping)
+
+class PizzaSerializerNotRel(serializers.ModelSerializer):
+
+    class Meta:
+        model = Pizza
+        fields = ('id', 'name', 'toppings')

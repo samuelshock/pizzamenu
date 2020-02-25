@@ -14,7 +14,7 @@ from .customAuth import CustomAuthToken
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path(r'admin/', admin.site.urls),
-    # path(r'pizzas/', views.pizza_list),
+    path(r'menu', views.getPizzas),
     path(r'pizzas', views.getAddPizzas),
     path(r'toppings', views.topping_list),
     path(r'pizzas/<int:pk>', views.pizza_detail),
