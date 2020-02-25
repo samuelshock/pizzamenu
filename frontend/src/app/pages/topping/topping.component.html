@@ -1,0 +1,51 @@
+<div class="row animated fadeIn" *ngIf="loading">
+    <div class="col-sm-12">
+
+        <div class="alert alert-warning text-center">
+            <strong>Loading</strong>
+            <br>
+            <i class="fa fa-refresh fa-spin fa-2x"></i>
+            <br>
+            <span>Please wait!</span>
+        </div>
+    </div>
+</div>
+
+<div class="text-right">
+    <button (click)="newtopping=!newtopping" type="button" class="btn waves-effect waves-light btn-rounded btn-primary">
+        <i class="fa fa-plus"></i>
+        Add Toppin
+    </button>
+</div>
+
+<div class="row animated fadeIn" *ngIf="newtopping">
+    <div class="col-sm-6">
+        <form #form='ngForm' (ngSubmit)="saveTopping(form)">
+            <div class="form-group">
+                <input [(ngModel)]="form.name" name="name" class="form-control" type="text">
+                <button type="submit" ejs-button>save</button>
+            </div>
+        </form>  
+    </div>
+</div>
+
+<table class="table table-hover" *ngIf="!loading">
+  <thead>
+    <tr>
+      <th scope="col">Topping</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let topping of toppings">
+        <td>
+            {{topping.name}}
+        </td>
+        <td>
+            <button (click)="deleteTopping(topping)" class="btn btn-danger">
+                <i class="fa fa-trash-o">Delete</i>
+            </button>
+        </td>
+        </tr>
+  </tbody>
+</table>

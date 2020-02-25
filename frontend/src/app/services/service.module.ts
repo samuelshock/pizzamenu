@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 
 import {
   LoginGuardGuard,
-  UserService
+  UserService,
+  ToppingService
 } from './service.index';
 
 
@@ -15,7 +16,8 @@ import {
   ],
   providers: [
     LoginGuardGuard,
-    UserService
+    UserService,
+    ToppingService
   ],
   declarations: []
 })

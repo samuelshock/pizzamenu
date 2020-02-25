@@ -28,6 +28,7 @@
     "core-js": "~2.6",
     "rxjs": "^6.4.0",
     "rxjs-compat": "^6.5.4",
+    "sweetalert2": "^9.8.2",
     "zone.js": "~0.8"
   },
   "devDependencies": {
