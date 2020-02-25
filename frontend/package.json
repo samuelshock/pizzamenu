@@ -24,6 +24,7 @@
     "@angular/platform-server": "~7.2",
     "@angular/router": "~7.2",
     "@angular/upgrade": "~7.2",
+    "@syncfusion/ej2-angular-dropdowns": "^17.4.51",
     "bootstrap": "^4.4.1",
     "core-js": "~2.6",
     "rxjs": "^6.4.0",

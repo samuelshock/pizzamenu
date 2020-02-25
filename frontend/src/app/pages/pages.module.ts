@@ -6,22 +6,25 @@ import { RegisterComponent } from '../login/register.component';
 
 // pages
 import { ToppingComponent } from './topping/topping.component';
+import { PizzaComponent } from './pizza/pizza.component';
 
 // additions
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
-
+import { MultiSelectAllModule } from '@syncfusion/ej2-angular-dropdowns';
 
 @NgModule({
   declarations: [
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ToppingComponent
+    ToppingComponent,
+    PizzaComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MultiSelectAllModule
   ]
 })
 export class PagesModule { }
